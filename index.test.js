@@ -20,4 +20,10 @@ describe("getSumOfNumbers", () => {
   test("handles multiple custom delimiters", () => {
     expect(getSumOfNumbers("//[*][%]\n1*2%3")).toBe(6);
   });
+
+  test("returns error message for negative numbers", () => {
+    expect(getSumOfNumbers("1,-2,3,-4")).toBe(
+      "negative numbers not allowed -2,-4"
+    );
+  });
 });

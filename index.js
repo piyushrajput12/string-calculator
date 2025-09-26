@@ -64,6 +64,9 @@ function getSumOfNumbers(input) {
   }
 
   if (current) numbers.push(Number(current));
+  const negatives = numbers.filter((n) => n < 0);
+  if (negatives.length)
+    return `negative numbers not allowed ${negatives.join(",")}`;
 
   const sum = numbers.reduce((sum, n) => sum + (Number.isNaN(n) ? 0 : n), 0);
   return sum;
