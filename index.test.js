@@ -12,4 +12,12 @@ describe("getSumOfNumbers", () => {
   test("sums numbers separated by newline", () => {
     expect(getSumOfNumbers("1\n2\n3")).toBe(6);
   });
+
+  test("handles single custom delimiter", () => {
+    expect(getSumOfNumbers("//;\n1;2")).toBe(3);
+  });
+
+  test("handles multiple custom delimiters", () => {
+    expect(getSumOfNumbers("//[*][%]\n1*2%3")).toBe(6);
+  });
 });
